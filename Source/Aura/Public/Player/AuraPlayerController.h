@@ -40,6 +40,9 @@ private:
 	void Move(const FInputActionValue& InputActionValue);
 	
 	void CursorTrace();
+	// 这里没有使用TObjectPtr，因为在TObjectPtr不支持接口，所以这里使用原生指针
+	// TObjectPtr<IEnemyInterface> LastActor;
+	// TObjectPtr<IEnemyInterface> ThisActor;
 	IEnemyInterface* LastActor;
 	IEnemyInterface* ThisActor;
 };
