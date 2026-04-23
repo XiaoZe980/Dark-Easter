@@ -52,7 +52,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Uproject.Aura_Dark_Easter.executor": "Debug",
+    "Uproject.Aura_Dark_Easter.executor": "Run",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
@@ -192,6 +192,7 @@
       <workItem from="1776774630122" duration="943000" />
       <workItem from="1776859551004" duration="714000" />
       <workItem from="1776860303003" duration="13824000" />
+      <workItem from="1776945837536" duration="4311000" />
     </task>
     <servers />
   </component>
