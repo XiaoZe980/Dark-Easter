@@ -20,9 +20,13 @@ public:
 	virtual void UnHighLightActor() override;
 #pragma  endregion 
 	
+#pragma region 战斗接口
+	virtual int32 GetPlayerLevel() override;
+#pragma endregion 
 protected:
 	virtual void BeginPlay() override;
-	
 	virtual void InitAbilityActorInfo() override;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= "Character Class Defaults")
+	int32 Level = 1;
 };

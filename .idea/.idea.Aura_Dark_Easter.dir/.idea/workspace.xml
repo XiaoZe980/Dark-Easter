@@ -26,7 +26,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://6" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/Character/AuraEnemy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Private/UI/WidgetController/OverlayWidgetController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Aura/Public/Character/AuraEnemy.h" root0="FORCE_HIGHLIGHTING" />
@@ -202,6 +201,10 @@
       <workItem from="1777084250451" duration="17231000" />
       <workItem from="1777123108359" duration="4526000" />
       <workItem from="1777180108277" duration="10799000" />
+      <workItem from="1777218916548" duration="701000" />
+      <workItem from="1777295663418" duration="2386000" />
+      <workItem from="1777380849021" duration="2879000" />
+      <workItem from="1777387290010" duration="6080000" />
     </task>
     <servers />
   </component>

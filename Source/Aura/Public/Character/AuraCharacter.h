@@ -19,6 +19,10 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	
+#pragma region 战斗接口
+	virtual int32 GetPlayerLevel() override;
+#pragma endregion 
+	
 private:
 	virtual void InitAbilityActorInfo() override;
 };

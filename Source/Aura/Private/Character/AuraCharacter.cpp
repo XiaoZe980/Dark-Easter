@@ -28,6 +28,7 @@ void AAuraCharacter::PossessedBy(AController* NewController)
 	
 	// 服务器初始化能力角色信息
 	InitAbilityActorInfo();
+	AddCharacterAbilities();
 }
 
 void AAuraCharacter::OnRep_PlayerState()
@@ -36,6 +37,13 @@ void AAuraCharacter::OnRep_PlayerState()
 	
 	// 客户端初始化能力角色信息
 	InitAbilityActorInfo();
+}
+
+int32 AAuraCharacter::GetPlayerLevel()
+{
+	const AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
+	check(AuraPlayerState);
+	return AuraPlayerState->GetPlayerLevel();
 }
 
 void AAuraCharacter::InitAbilityActorInfo()
@@ -54,5 +62,5 @@ void AAuraCharacter::InitAbilityActorInfo()
 			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
 		}
 	}
-	
+	InitializeDefaultAttributes();
 }
