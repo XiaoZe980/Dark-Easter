@@ -7,6 +7,7 @@
 #include "GameplayTagContainer.h"
 #include "AuraPlayerController.generated.h"
 
+class USplineComponent;
 class UAuraAbilitySystemComponent;
 struct FGameplayTag;
 class UAuraInputConfig;
@@ -44,12 +45,12 @@ private:
 	void Move(const FInputActionValue& InputActionValue);
 	
 	void CursorTrace();
-	
-	// 这里没有使用TObjectPtr，因为在TObjectPtr不支持接口，所以这里使用原生指针
+	/* 这里没有使用TObjectPtr，因为在TObjectPtr不支持接口，所以这里使用原生指针*/
 	// TObjectPtr<IEnemyInterface> LastActor;
 	// TObjectPtr<IEnemyInterface> ThisActor;
 	IEnemyInterface* LastActor;
 	IEnemyInterface* ThisActor;
+	FHitResult CursorHit;
 	
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
@@ -62,4 +63,19 @@ private:
 	TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
 	
 	UAuraAbilitySystemComponent* GetASC();
+	
+	
+	FVector CachedDestination = FVector::ZeroVector;
+	float FollowTime = 0.f;
+	float ShortPressThreshold = 0.5f;
+	bool bAutoRunning = false;
+	bool bTargeting = false;
+	
+	UPROPERTY(EditDefaultsOnly)
+	float AutoRunAcceptanceRadius = 50.f;
+	
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<USplineComponent> Spline;
+	
+	void AutoRun();
 };
