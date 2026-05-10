@@ -17,16 +17,16 @@ UAuraAttributeSet::UAuraAttributeSet()
 	
 	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
 	
-	/* Primary Attributes */
-#pragma region Primary Attributes
+	/* Primary Attributes 基本属性 */
+#pragma region Primary Attributes 基本属性
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Strength, GetStrengthAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Intelligence, GetIntelligenceAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Resilience, GetResilienceAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Vigor, GetVigorAttribute);
-#pragma endregion 
+#pragma endregion  
 	
-	/* Secondary Attributes */
-#pragma region Secondary Attributes
+	/* Secondary Attributes 次要属性 */
+#pragma region Secondary Attributes 次要属性
 	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_Armor, GetArmorAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_ArmorPenetration, GetArmorPenetrationAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_BlockChance, GetBlockChanceAttribute);
@@ -128,6 +128,7 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectMo
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+		UE_LOG(LogTemp, Warning, TEXT("在%s处，Health被修改为%f"), *Props.TargetAvatarActor->GetName(), GetHealth());
 	}
 	if (Data.EvaluatedData.Attribute == GetManaAttribute())
 	{
