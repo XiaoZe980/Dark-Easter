@@ -82,9 +82,9 @@ public:
 	// TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FunctionPointer;
 	
 	/*
-	 * Primary Attributes
+	 * Primary Attributes 主要属性
 	 */
-#pragma region Primary Attributes
+#pragma region Primary Attributes 主要属性
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Strength, Category = "Primary Attributes")
 	FGameplayAttributeData Strength;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strength);
@@ -103,9 +103,9 @@ public:
 	
 #pragma endregion
 	/*
-	 * Secondary Attributes
+	 * Secondary Attributes 次要属性
 	 */
-#pragma region Secondary Attributes
+#pragma region Secondary Attributes 次要属性
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Armor, Category = "Secondary Attributes")
 	FGameplayAttributeData Armor;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Armor);
@@ -148,9 +148,9 @@ public:
 	
 #pragma endregion
 	/*
-	 * Vital Attributes
+	 * Vital Attributes 关键属性
 	 */
-#pragma region Vital Attributes
+#pragma region Vital Attributes 关键属性
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Health, Category = "Vital Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
@@ -158,6 +158,19 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category = "Vital Attributes")
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana);
+	
+#pragma endregion
+	
+	/*
+	 * Meta Attributes 元属性
+	 */
+#pragma region Meta Attributes 元属性
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
+	FGameplayAttributeData IncomingDamage;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, IncomingDamage);
+	
+#pragma endregion
 	
 	UFUNCTION()
 	void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
@@ -207,11 +220,12 @@ public:
 	UFUNCTION()
 	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
 	
-#pragma endregion
+
 	
 private:
 	
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
+	void ShowFloatingText(const FEffectProperties& Props, float Damage) const;
 	
 };
 
