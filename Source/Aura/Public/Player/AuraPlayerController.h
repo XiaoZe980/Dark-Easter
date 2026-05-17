@@ -31,7 +31,7 @@ public:
 	virtual void PlayerTick(float DeltaTime) override;
 	
 	UFUNCTION(Client, Reliable)
-	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter);
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
 	
 protected:
 	
@@ -59,8 +59,8 @@ private:
 	/* 这里没有使用TObjectPtr，因为在TObjectPtr不支持接口，所以这里使用原生指针*/
 	// TObjectPtr<IEnemyInterface> LastActor;
 	// TObjectPtr<IEnemyInterface> ThisActor;
-	IEnemyInterface* LastActor;
-	IEnemyInterface* ThisActor;
+	IEnemyInterface* LastActor = nullptr;
+	IEnemyInterface* ThisActor = nullptr;
 	FHitResult CursorHit;
 	
 	void AbilityInputTagPressed(FGameplayTag InputTag);
